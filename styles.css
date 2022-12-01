@@ -13,7 +13,8 @@ img {
 /* image responsive, largeur maxi */
 /* hauteur "auto" */
 height: auto;
-max-width: 100%;
+/* max-width: 100%; */
+width: auto;
 }
 
 .carrousel_parent-ecrans {
@@ -21,6 +22,9 @@ max-width: 100%;
 /* largeur du parent */
 display: flex;
 gap: 1em;
+overflow-x: scroll; /* permet de scroller horizontalement */
+scroll-behavior: smooth; /* animation de défilement */
+scroll-snap-type: x mandatory; /* permet de scroller par blocs */
 }
 
 .carrousel_ecran {
@@ -28,9 +32,48 @@ gap: 1em;
 /* permet de garder toute la largeur du parent */
 height: 100%;
 width: 100%;
+scroll-snap-align: start; /* aligne les enfants par blocs */
 }
     
 .carrousel_ecran figure {
 /* enlève les marges par défaut */
-margin: 0;
+margin: 0 ;
 }
+
+.carrousel {
+    position: relative;
+  }
+  
+.carrousel_btn {
+    position: absolute;
+    top: 50%; /* centre verticalement */
+    transform: translateY(-50%); /* methode du point nort */
+    width: 2rem;
+    height: 2rem;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    border: none;
+    display: grid;
+    place-content: center;
+    color: #fff;
+  }
+  
+  .carrousel_btn-avant {
+    left: 0;
+  }
+  
+  .carrousel_btn-apres {
+    right: 0;
+  }
+  .caroussel_liste-liens {
+
+    display :flex ; /* aligne horizontalement les enfants */
+    justify-content : center   ; /* centre horizontalement les enfants */
+    margin : 0px ; /* enlève les marges par défaut */
+    padding : 0px ; /* enlève les padding par défaut */
+    list-style-type : none; /* enlève les puces par défaut */
+    gap : 1em ; /* espace entre les enfants */
+  }
+  actif{
+    color: red;
+  }
